@@ -12,12 +12,12 @@ import {notification} from 'antd'
             email:event.target.email.value,
             password:event.target.password.value
         };
-        console.log('http://localhost:3001/users/login', user)
+        axios.post('http://localhost:3001/users/login',user)
         .then(res=>{
          // props.setUser(res.data.user) //seteo el user como estado del App.js
-           setUser(res.data.user) //seteo el user como estado del App.js
+            setUser(res.data.user) //seteo el user como estado del App.js
             localStorage.setItem('authToken',res.data.token);
-            /*localStorage.setItem('user',JSON.stringify(res.data.user));*/ console.log(res.data.user)
+            localStorage.setItem('user',JSON.stringify(res.data.user))
             notification.success({message:'Bienvenide',description:'Bienvenide '+user.email})
             setTimeout(() => {
                 history.push('/')
