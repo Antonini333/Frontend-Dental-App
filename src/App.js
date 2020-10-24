@@ -1,16 +1,20 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
-import Counter from './components/Counter';
+import { Switch, BrowserRouter/*, Route*/ } from 'react-router-dom'
+
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       <Counter initialValue= {34} />
-       <Counter initialValue= {200} />
-             </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+       </Switch>
+       <Footer />
+       </BrowserRouter>
+          
   );
 }
 
