@@ -20,8 +20,8 @@ const Register = () =>{
             nationality: event.target.nationality.value,
             DNI: event.target.DNI.value
         };
-        
-        axios.post('http://localhost:3001/client/register', userBody)
+
+        axios.post('http://localhost:3001/users/register', userBody)
         .then(res => {
             console.log(res.data)
             notification.success({ message :'Registered client.',description:'Succesfully registered client.'})
