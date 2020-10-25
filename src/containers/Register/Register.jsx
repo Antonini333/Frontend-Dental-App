@@ -21,7 +21,7 @@ const Register = () =>{
             DNI: event.target.DNI.value
         };
 
-        axios.post('http://localhost:3001/users/register', userBody)
+        axios.post('https://guarded-scrubland-93096.herokuapp.com/users/register', userBody)
         .then(res => {
             console.log(res.data)
             notification.success({ message :'Registered client.',description:'Succesfully registered client.'})

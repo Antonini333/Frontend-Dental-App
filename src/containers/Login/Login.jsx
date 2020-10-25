@@ -9,16 +9,18 @@ import {notification} from 'antd'
     const handleSubmit = event =>{
         event.preventDefault(); // para evitar refrescar la página
         const user ={
+            name:event.target.name.value,
             email:event.target.email.value,
             password:event.target.password.value
         };
-        axios.post('http://localhost:3001/users/login',user)
+        axios.post('https://guarded-scrubland-93096.herokuapp.com/users/login',user)
         .then(res=>{
+            console.log(res.data);
          // props.setUser(res.data.user) //seteo el user como estado del App.js
-            setUser(res.data.user) //seteo el user como estado del App.js
+            setUser(res.data) //seteo el user como estado del App.js
             localStorage.setItem('authToken',res.data.token);
-            localStorage.setItem('user',JSON.stringify(res.data.user))
-            notification.success({message:'Bienvenide',description:'Bienvenide '+user.email})
+            localStorage.setItem('user',JSON.stringify(res.data))
+            notification.success({message:'Bienvenido',description:'Bienvenido '+user.name})
             setTimeout(() => {
                 history.push('/')
             }, 1000);
@@ -27,6 +29,7 @@ import {notification} from 'antd'
     }
     return (
         <form className="login-form" onSubmit={handleSubmit}>
+            <input type="name" name="name" required placeholder="Introduce tu nombre"/>
             <input type="email" name="email" required placeholder="Introduce tu email" />
             <input type="password" name="password" required placeholder="Introduce tu contraseña"/>
             <button type="submit">Log in</button>

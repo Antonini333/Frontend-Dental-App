@@ -5,7 +5,7 @@ const Users = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
         const token = localStorage.getItem('authToken');
-        axios.get('http://localhost:3001/users/',{
+        axios.get('https://guarded-scrubland-93096.herokuapp.com/users',{
             headers:{
                 Authorization:token
             }
