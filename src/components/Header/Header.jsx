@@ -1,13 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import './Header.scss';
+import {useHistory} from "react-router"
 
 const Header = ({user, setUser}) => {
+    const history = useHistory();
 
 const logout = () =>{
+    
     localStorage.clear();
     
-    setUser(null)
+    setUser(null);
+    history.push('/');
 }
     return (
         <header className="header">

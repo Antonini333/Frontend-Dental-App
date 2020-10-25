@@ -3,7 +3,7 @@ import {useHistory} from "react-router";
 
 import {Input, Button, notification } from 'antd';
 import axios from 'axios';
-
+import './Register.scss'
 const Register = () =>{
 
     const history = useHistory();
@@ -35,6 +35,8 @@ const Register = () =>{
     }
 
     return (
+        
+        <div className="register">
         <form className="register-form" onSubmit={handleSubmit}>
 
         <Input type="name" name="name" required placeholder="Write your name" />
@@ -52,6 +54,7 @@ const Register = () =>{
         <Button type="primary" htmlType="submit">Sign up</Button>
 
     </form>
+    </div>
 )
 }
 

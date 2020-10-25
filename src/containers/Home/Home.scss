@@ -1,7 +1,20 @@
 .home {
-    display: flex;
-    justify-content: center;
-    align-content: space-around;
+    
  background-image: url("https://www.imoaclinicadental.com/wp-content/uploads/2019/02/clinica-imoa-sevilla-hall.jpg");
- height: 38em;
+ height: 41em;
+ margin-top: -1.9em;
+}
+
+.bettens{
+    width: 22em;
+    height: 10em;
+    font-size: x-large;
+    border-radius: 1em;
+    background-color: rgba(235, 211, 211, 0.939);
+    display: flex;
+    margin: 1.5em 5em 1em 16em;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: inset rgba(0, 0, 0, 0.652) 0.2em 0.1em 1em 0.1em;
 }

@@ -7,8 +7,12 @@ const Home = () => {
   
     return (
         <div className="home">
+            <div className="bettens">
             < Link to="/register">REGISTRO</Link>
+            </div>
+            <div className="bettens">
             <Link to="/login">LOGIN</Link>
+            </div>
         </div>
     )
    
