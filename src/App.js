@@ -34,9 +34,10 @@ function App() {
       <Switch>
         <Route exact path ='/' component={Home} />
         <Route exact path ='/register' component={Register}/>
+        <Route exact path='/profile' component={Profile} />
         <Route exact path='/login' >
-          <Login setUser={setUser} component={Profile}/>
-          <Route path='/profile' component={Profile} />
+          <Login setUser={setUser} />
+
           </Route>
        </Switch>
        <Footer />
