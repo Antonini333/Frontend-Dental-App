@@ -12,10 +12,10 @@ const Profile = () => {
 
        <div className="containerButtons">
              <div className="buttonsProfile">
-               <Link to="/profile/newAppointment">Nueva cita</Link>
+               <Link to="/profile/newappointment">New Appointment</Link>
              </div>
              <div className="buttonsProfile">
-               <Link to="/profile/showAppointments">Mostrar citas</Link>
+               <Link to="/profile/showappointment">Show Appointments</Link>
              </div>
        </div>
      </div>

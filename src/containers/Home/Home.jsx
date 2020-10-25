@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className="home">
             <div className="bettens">
-            < Link to="/register">REGISTRO</Link>
+            < Link to="/register">REGISTER</Link>
             </div>
             <div className="bettens">
             <Link to="/login">LOGIN</Link>
