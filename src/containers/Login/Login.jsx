@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import {useHistory} from 'react-router-dom'
 import './Login.scss';
-import {notification} from 'antd'
+import {Input, Button, notification} from 'antd'
+
 // const Login = (props) => {
     const Login = ({setUser}) => {
     const history = useHistory();
@@ -22,17 +23,17 @@ import {notification} from 'antd'
             localStorage.setItem('user',JSON.stringify(res.data))
             notification.success({message:'Bienvenido',description:'Bienvenido '+user.name})
             setTimeout(() => {
-                history.push('/')
+                history.push('/profile')
             }, 1000);
         })
         .catch(error=>console.log(error))
     }
     return (
         <form className="login-form" onSubmit={handleSubmit}>
-            <input type="name" name="name" required placeholder="Introduce tu nombre"/>
-            <input type="email" name="email" required placeholder="Introduce tu email" />
-            <input type="password" name="password" required placeholder="Introduce tu contraseña"/>
-            <button type="submit">Log in</button>
+            <Input type="name" name="name" required placeholder="Introduce tu nombre"/>
+            <Input type="email" name="email" required placeholder="Introduce tu email" />
+            <Input type="password" name="password" required placeholder="Introduce tu contraseña"/>
+            <Button type="primary" htmlType="submit">Login</Button>
         </form>
     )
 }
