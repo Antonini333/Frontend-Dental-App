@@ -23,7 +23,7 @@ import {Input, Button, notification} from 'antd'
             localStorage.setItem('user',JSON.stringify(res.data))
             notification.success({message:'Bienvenido',description:'Bienvenido '+user.name})
             setTimeout(() => {
-                history.push('/profile')
+                history.push('/')
             }, 1000);
         })
         .catch(error=>console.log(error))

@@ -9,8 +9,9 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 
 import Register from './containers/Register/Register';
-import Login from './containers/Login/Login'
-import UserList from './containers/UserList/UserList'
+import Login from './containers/Login/Login';
+import Profile from './containers/Profile/Profile';
+import Home from './containers/Home/Home';
 
 function App() {
 
@@ -31,11 +32,12 @@ function App() {
     <BrowserRouter>
       <Header user={user} setUser={setUser} />
       <Switch>
-        <Route path ='/register' component={Register}/>
-        <Route path='/login' exact >
-          <Login setUser={setUser} />
+        <Route exact path ='/' component={Home} />
+        <Route exact path ='/register' component={Register}/>
+        <Route exact path='/login' >
+          <Login setUser={setUser} component={Profile}/>
+          <Route path='/profile' component={Profile} />
           </Route>
-        <Route path='/users' component={UserList} exact />
        </Switch>
        <Footer />
        </BrowserRouter>
