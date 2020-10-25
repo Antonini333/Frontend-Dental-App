@@ -1,6 +1,8 @@
 .header {
+    background-color: rgba(37, 39, 38, 0.623);
+    box-shadow: inset rgba(0, 0, 0, 0.652) 0.2em 0.1em 1em 0.1em;
     color: red;
-    min-height: 5vh;
+    height: 4em;
     a {
         all: unset;
         cursor: pointer;

@@ -5,7 +5,6 @@ import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import axios from 'axios';
 
-import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 
 import Register from './containers/Register/Register';
@@ -40,7 +39,7 @@ function App() {
 
           </Route>
        </Switch>
-       <Footer />
+       
        </BrowserRouter>
           
   );

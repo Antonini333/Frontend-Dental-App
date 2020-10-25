@@ -1,12 +1,37 @@
-.header {
-    background-color: red;
-    min-height: 5vh;
-    a {
-        all: unset;
-        cursor: pointer;
-        padding: 0.8em;
-        &:hover {
-            background-color: rgb(220, 244, 253);
-        }
-    }
-  }
+
+
+.containerButtons {
+    background-color: rgba(104, 182, 145, 0.542);
+    height: 36em;
+    width: 100em;
+    margin-top: 0.3em;
+    border-radius: 0.4em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    position: fixed;
+    box-shadow: inset rgba(0, 0, 0, 0.652) 0.2em 0.1em 1em 0.1em;
+
+}
+
+
+
+.buttonsProfile {
+    width: 18em;
+    height: 8em;
+    font-size: x-large;
+    border-radius: 1em;
+    background-color: rgba(208, 134, 134, 0.822);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: inset rgba(0, 0, 0, 0.652) 0.2em 0.1em 1em 0.1em;
+}
+
+.buttonsProfile:hover {
+                box-shadow: 0em 0em 0.8em 0.6em rgba(255, 255, 255, 0.644);
+                transition: 0.3s;
+            }
+        

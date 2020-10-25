@@ -1,15 +1,7 @@
 .home {
     display: flex;
     justify-content: center;
-    align-content: space-around;;
-    color: blue;
-    min-height: 5vh;
-    a {
-        all: unset;
-        cursor: pointer;
-        padding: 0.8em;
-        &:hover {
-            background-color: rgb(220, 244, 253);
-        }
-    }
+    align-content: space-around;
+ background-image: url("https://www.imoaclinicadental.com/wp-content/uploads/2019/02/clinica-imoa-sevilla-hall.jpg");
+ height: 38em;
 }
