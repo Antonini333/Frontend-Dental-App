@@ -1,15 +1,25 @@
-
+.body {
+    
+    
+        background-image: url("https://estaticos.qdq.com/swdata/home_photos/389/389154911/c22e27f83dc640f2a5bb0ed4417b44ff.jpg");
+        height: 41em;
+        
+        background-size: cover;
+        background-position: center;
+       
+    
+}
 
 .containerButtons {
-    background-color: rgba(136, 211, 176, 0.542);
     height: 36em;
     width: 100em;
     margin-top: 0.3em;
+    margin-left: -5em;
     border-radius: 0.4em;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     position: fixed;
     box-shadow: inset rgba(0, 0, 0, 0.652) 0.2em 0.1em 1em 0.1em;
 
@@ -17,9 +27,11 @@
 
 
 
+
+
 .buttonsProfile {
     width: 18em;
-    height: 8em;
+    height: 3em;
     font-size: x-large;
     border-radius: 1em;
     background-color: rgba(230, 172, 172, 0.822);

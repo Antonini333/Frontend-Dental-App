@@ -1,20 +1,17 @@
 .home {
     
- background-image: url("https://www.imoaclinicadental.com/wp-content/uploads/2019/02/clinica-imoa-sevilla-hall.jpg");
- height: 41em;
- margin-top: -1.9em;
-}
+    background-image: url("https://estaticos.qdq.com/swdata/home_photos/389/389154911/c22e27f83dc640f2a5bb0ed4417b44ff.jpg");
+    height: 41em;
+    
+    background-size: cover;
+    background-position: center;
+   }
+   
 
-.bettens{
-    width: 22em;
-    height: 10em;
-    font-size: x-large;
-    border-radius: 1em;
-    background-color: rgba(235, 211, 211, 0.939);
-    display: flex;
-    margin: 1.5em 5em 1em 16em;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: inset rgba(0, 0, 0, 0.652) 0.2em 0.1em 1em 0.1em;
+
+.logout{
+    margin-left: 7em;
+    font-size: x-large ;
+    font-weight: bold;
+    color: rgba(192, 8, 8, 0.945)
 }

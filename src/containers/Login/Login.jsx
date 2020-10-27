@@ -35,7 +35,7 @@ import {Input, Button, notification} from 'antd'
             <Input type="name" name="name" required placeholder="Introduce tu nombre"/>
             <Input type="email" name="email" required placeholder="Introduce tu email" />
             <Input type="password" name="password" required placeholder="Introduce tu contraseña"/>
-            <Button type="primary" htmlType="submit">Login</Button>
+            <Button className="buttonlogin" type="primary" htmlType="submit">Login</Button>
         </form>
         </div>
     )

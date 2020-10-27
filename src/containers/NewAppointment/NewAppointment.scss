@@ -1,16 +1,31 @@
 .appointment{
-    background-color: rgba(136, 211, 176, 0.542);
-    margin-top: 0.2em;
-
+    background-image: url("https://estaticos.qdq.com/swdata/home_photos/389/389154911/c22e27f83dc640f2a5bb0ed4417b44ff.jpg");
+    width: 100%;
+    height: 100%;
+    
+    background-size: cover;
+    background-position: center;
+    margin-top: -1em;
 }
 
 
 .appointment-form {
 
     width: 36em;
-    height: 60em;
+    height: 41em;
     margin: 1em 1em 1em 26em;
+    padding-top: 8em;
+    direction: vertical;
+    size: medium;
+
 ;
 
 
+}
+
+.newButton{
+    color:white;
+    font-size: medium;
+    width: 31.55em;
+    margin-top: 1em;
 }

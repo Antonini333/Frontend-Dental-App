@@ -44,7 +44,7 @@ const NewAppointment = () =>{
 
 
 
-        <Button type="primary" htmlType="submit">Create new appointment</Button>
+        <Button className="newButton" type="primary" htmlType="submit">Create new appointment</Button>
         </form>
     </div>
 )

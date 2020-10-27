@@ -2,10 +2,10 @@ import React from 'react';
 import './ShowAppointment.scss'
 import axios from 'axios';
 import {useHistory} from 'react-router-dom'
-import {Input, Button, notification} from 'antd'
+import {Button, notification} from 'antd'
 
 
-const ShowAppointment = ({setAppointment}) =>{
+const ShowAppointment = () =>{
 
     const history = useHistory();
 
@@ -19,9 +19,7 @@ const ShowAppointment = ({setAppointment}) =>{
 
         axios.get(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${ShowAppointment.email}`, ShowAppointment)
         .then(res => {
-
-            setAppointment(res.data) 
-            localStorage.setItem('appointment',JSON.stringify(res.data))
+            localStorage.setItem('showedappointment',JSON.stringify(res.data))
             notification.success({ message: 'This is the register of your appointment' })
             
             setTimeout(() => {
@@ -37,13 +35,13 @@ const ShowAppointment = ({setAppointment}) =>{
         <div className="showappointment">
         <form className="showappointment-form" onSubmit={handleSubmit}>
 
-        <Input type="date" name="date" required placeholder="Date of the appointment you want to check" />
-        <Input type="email" name="email" required placeholder="Write your email" />
+        <input type="date" name="date" required placeholder="Date of the appointment you want to check" />
+        <input type="email" name="email" required placeholder="Write your email" />
 
 
 
 
-        <Button type="primary" htmlType="submit">Check Appointment</Button>
+        <Button className="checkButton" type="primary" htmlType="submit">Check Appointment</Button>
         </form>
     </div>
 )

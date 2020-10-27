@@ -15,15 +15,14 @@ const logout = () =>{
 }
     return (
         <header className="header">
-            <Link to="/">Home</Link>
+            <Link to="/">Home</Link>&nbsp;&nbsp;
             {user ?
             <div className='loggedIn'>
                 <Link to='/profile'>{user.email}</Link>
                 <span className='logout' onClick={logout}>Logout</span>
             </div> :
             <div className='notLoggedIn'>
-                <Link to="/login">Login</Link>
-                <Link to="/logout">Logout</Link>
+                <Link to="/login">Login</Link> &nbsp;
                 <Link to="/register">Register</Link>
             </div>}
         </header>
