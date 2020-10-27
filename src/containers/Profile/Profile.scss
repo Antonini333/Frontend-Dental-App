@@ -34,12 +34,15 @@
     height: 3em;
     font-size: x-large;
     border-radius: 1em;
-    background-color: rgba(230, 172, 172, 0.822);
+    background-color: rgba(13, 120, 182, 0.768);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     box-shadow: inset rgba(0, 0, 0, 0.652) 0.2em 0.1em 1em 0.1em;
+    a {
+        color: white;
+    }
 }
 
 .buttonsProfile:hover {

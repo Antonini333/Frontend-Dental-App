@@ -25,8 +25,8 @@ const NewAppointment = () =>{
             notification.success({ message :'Appointment succeed',description:'Succesfully.'})
             
             setTimeout(() => {
-                history.push("/")
-            }, 3500);
+                history.push("/profile")
+            }, 2500);
         }).catch(error => {
             notification.error({ message: 'Appointment error.', description: 'There was an error.' })
         })

@@ -5,8 +5,24 @@
     
     background-size: cover;
     background-position: center;
+    
    }
    
+.leitmotiv {
+    margin-left: 8em;
+}
+
+.clinicatext{
+    margin: 8em 26em 0em 22em;
+    background-color: rgba(13, 120, 182, 0.74);
+    padding: 1.5em;
+    border-radius: 0.9em;
+    box-shadow: inset rgba(0, 0, 0, 0.652) 0.2em 0.1em 1em 0.1em;
+    a {
+        color: white;
+    }
+    
+}
 
 
 .logout{
@@ -15,3 +31,4 @@
     font-weight: bold;
     color: rgba(192, 8, 8, 0.945)
 }
+

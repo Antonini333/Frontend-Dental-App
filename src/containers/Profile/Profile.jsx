@@ -12,10 +12,16 @@ const Profile = () => {
 
        <div className="containerButtons">
              <div className="buttonsProfile">
-               <Link to="/profile/newappointment">New Appointment</Link>
+               <Link to="/profile/newappointment">Make New Appointment</Link>
              </div>
              <div className="buttonsProfile">
-               <Link to="/profile/showappointment">Show Appointments</Link>
+               <Link to="/profile/showappointment">Check Appointment by date</Link>
+             </div>
+             <div className="buttonsProfile">
+               <Link to="/profile/showappointment">Check All Appointments</Link>
+             </div>
+             <div className="buttonsProfile">
+               <Link to="/">Home</Link>
              </div>
        </div>
      </div>
