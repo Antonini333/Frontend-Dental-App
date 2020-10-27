@@ -21,7 +21,8 @@ import {Input, Button, notification} from 'antd'
             setUser(res.data) //seteo el user como estado del App.js
             localStorage.setItem('authToken',res.data.token);
             localStorage.setItem('user',JSON.stringify(res.data))
-            notification.success({message:'Bienvenido',description:'Bienvenido '+user.name})
+            notification.success({message:'Bienvenido',description:'Bienvenido '+user.name});
+            console.log('user')
             setTimeout(() => {
                 history.push('/profile')
             }, 1000);

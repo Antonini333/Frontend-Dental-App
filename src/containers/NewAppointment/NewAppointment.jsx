@@ -20,7 +20,8 @@ const NewAppointment = () =>{
 
         axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/create/${NewAppointment.email}`, NewAppointment)
         .then(res => {
-            console.log(res.data)
+
+            localStorage.setItem('appointment',JSON.stringify(res.data))
             notification.success({ message :'Appointment succeed',description:'Succesfully.'})
             
             setTimeout(() => {
