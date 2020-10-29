@@ -11,6 +11,7 @@ const NewAppointment = () =>{
 
     const handleSubmit = event =>{
         event.preventDefault(); // Prevent the page from refreshing.
+        
         const NewAppointment={
             
             email: event.target.email.value,
@@ -22,7 +23,7 @@ const NewAppointment = () =>{
         .then(res => {
 
             localStorage.setItem('appointment',JSON.stringify(res.data))
-            notification.success({ message :'Appointment succeed',description:'Succesfully.'})
+            notification.success({ message :'You have made an appointment',description:`Date: ${NewAppointment.date}`})
             
             setTimeout(() => {
                 history.push("/profile")

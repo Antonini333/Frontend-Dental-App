@@ -5,6 +5,7 @@ import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import axios from 'axios';
 
+
 import Header from './components/Header/Header';
 
 import Register from './containers/Register/Register';
@@ -12,7 +13,9 @@ import Login from './containers/Login/Login';
 import Profile from './containers/Profile/Profile';
 import Home from './containers/Home/Home';
 import NewAppointment from './containers/NewAppointment/NewAppointment';
-import ShowAppointment from './containers/ShowAppointment/ShowAppointment';
+import ShowedAppointment from './containers/ShowAppointment/ShowAppointment';
+
+
 
 function App() {
 
@@ -37,7 +40,7 @@ function App() {
         <Route exact path ='/register' component={Register}/>
         <Route exact path='/profile' component={Profile} />
         <Route exact path='/profile/newappointment' component={NewAppointment} />
-        <Route exact path='/profile/showappointment' component={ShowAppointment} />
+        <Route exact path='/profile/showappointment' component={ShowedAppointment} />
         <Route exact path='/login' >
 
           <Login setUser={setUser} />

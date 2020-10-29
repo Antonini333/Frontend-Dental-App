@@ -5,7 +5,8 @@ import {useHistory} from 'react-router-dom'
 import {Button, notification} from 'antd'
 
 
-const ShowAppointment = () =>{
+
+const ShowedAppointment = () =>{
 
     const history = useHistory();
 
@@ -17,8 +18,11 @@ const ShowAppointment = () =>{
             date: event.target.date.value
         };
 
-        axios.get(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${ShowAppointment.email}`, ShowAppointment)
+   
+
+        axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${ShowAppointment.email}`, ShowAppointment)
         .then(res => {
+            console.log(res.data)
             localStorage.setItem('showedappointment',JSON.stringify(res.data))
             notification.success({ message: 'This is the register of your appointment' })
             
@@ -47,4 +51,4 @@ const ShowAppointment = () =>{
 )
 }
 
-export default ShowAppointment;
+export default ShowedAppointment;
