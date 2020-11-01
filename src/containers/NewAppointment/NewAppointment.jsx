@@ -7,19 +7,22 @@ import {Input, Button, notification} from 'antd'
 
 const NewAppointment = () =>{
 
+    const user = JSON.parse(localStorage.getItem('user'));
     const history = useHistory();
+
+    
 
     const handleSubmit = event =>{
         event.preventDefault(); // Prevent the page from refreshing.
         
         const NewAppointment={
             
-            email: event.target.email.value,
+            token: user.token,
             date: event.target.date.value,
             symptoms: event.target.symptoms.value
         };
 
-        axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/create/${NewAppointment.email}`, NewAppointment)
+        axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/create/${NewAppointment.token}`, NewAppointment)
         .then(res => {
 
             localStorage.setItem('appointment',JSON.stringify(res.data))
@@ -27,7 +30,7 @@ const NewAppointment = () =>{
             
             setTimeout(() => {
                 history.push("/profile")
-            }, 2500);
+            }, 3000);
         }).catch(error => {
             notification.error({ message: 'Appointment error.', description: 'There was an error.' })
         })
@@ -40,7 +43,7 @@ const NewAppointment = () =>{
 
         <Input type="date" name="date" required placeholder="Set the date you desire the new appointment" />
         <Input type="symptoms" name="symptoms" required placeholder="Can you describe your symptoms?" />
-        <Input type="email" name="email" required placeholder="Write your email" />
+        
 
 
 

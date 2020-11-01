@@ -13,7 +13,7 @@ import Login from './containers/Login/Login';
 import Profile from './containers/Profile/Profile';
 import Home from './containers/Home/Home';
 import NewAppointment from './containers/NewAppointment/NewAppointment';
-import ShowedAppointment from './containers/ShowAppointment/ShowAppointment';
+import AppointmentController from './containers/ShowAppointment/ShowAppointment';
 
 
 
@@ -40,7 +40,7 @@ function App() {
         <Route exact path ='/register' component={Register}/>
         <Route exact path='/profile' component={Profile} />
         <Route exact path='/profile/newappointment' component={NewAppointment} />
-        <Route exact path='/profile/showappointment' component={ShowedAppointment} />
+        <Route exact path='/profile/showappointment' component={AppointmentController} />
         <Route exact path='/login' >
 
           <Login setUser={setUser} />

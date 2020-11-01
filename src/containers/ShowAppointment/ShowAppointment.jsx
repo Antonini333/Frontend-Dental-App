@@ -1,54 +1,57 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './ShowAppointment.scss'
 import axios from 'axios';
-import {useHistory} from 'react-router-dom'
-import {Button, notification} from 'antd'
+
+import {notification} from 'antd'
 
 
 
-const ShowedAppointment = () =>{
 
-    const history = useHistory();
+const AppointmentController = () => {
 
-    const handleSubmit = event =>{
-        event.preventDefault(); // Prevent the page from refreshing.
-        const ShowAppointment={
-            
-            email: event.target.email.value,
-            date: event.target.date.value
-        };
+    
+    const [appointments,setAppointments] = useState([]);
+    
 
-   
+   useEffect(() => {
+     let user = JSON.parse(localStorage.getItem('user'));
+         axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${user.email}`, user.email)
+           .then((res) => {
+               console.log(res.data)
+               setAppointments(res.data.appointment);
+               console.log(setAppointments)
+               localStorage.setItem('appointments', JSON.stringify(res.data));
+           })
+    }, [])
 
-        axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${ShowAppointment.email}`, ShowAppointment)
-        .then(res => {
-            console.log(res.data)
-            localStorage.setItem('showedappointment',JSON.stringify(res.data))
-            notification.success({ message: 'This is the register of your appointment' })
-            
-            setTimeout(() => {
-                history.push("/")
-            }, 3500);
-        }).catch(error => {
-            notification.error({ message: 'Appointment error.', description: 'There was an error.' })
+    const deleteAppointment = () => {
+        let user = JSON.parse(localStorage.getItem('user'));
+        axios.delete(`https://guarded-scrubland-93096.herokuapp.com/appointments/cancel/${user.email}`, user.email);
+        notification.success({message:'Appointment has been successfully cancelled.', description:'Appointment has been successfully cancelled.'})
+        axios.post(`https://guarded-scrubland-93096.herokuapp.com/appotments/show/${user.email}`, user.email)
+        .then((res) =>{
+          console.log(res.data)
+          setAppointments(res.data.appointment);
+        }).catch((error) =>{
+          console.log(error);
         })
-    }
-
-    return (
-        
-        <div className="showappointment">
-        <form className="showappointment-form" onSubmit={handleSubmit}>
-
-        <input type="date" name="date" required placeholder="Date of the appointment you want to check" />
-        <input type="email" name="email" required placeholder="Write your email" />
+      }
 
 
-
-
-        <Button className="checkButton" type="primary" htmlType="submit">Check Appointment</Button>
-        </form>
-    </div>
-)
+        return(
+            <div className='appointmentprofile'>
+        <div className="appointmentContainer">
+            {appointments?.map(appointment =>
+                <div key={appointment._id} className="cardAppointment">
+                  <div className='title'>Patient: {appointment.name_user}</div>
+                  <div className='title'>Motive: {appointment.symptoms}</div>
+                  <div>{appointment.date}</div>
+                  <button onClick={()=> {deleteAppointment(appointment._id)}}>X</button>
+                </div>
+            )}
+        </div>
+      </div>
+        )
 }
 
-export default ShowedAppointment;
+export default AppointmentController;
