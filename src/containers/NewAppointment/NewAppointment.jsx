@@ -1,8 +1,14 @@
 import React from 'react';
-import './NewAppointment.scss'
+import './NewAppointment.scss';
 import axios from 'axios';
-import {useHistory} from 'react-router-dom'
-import {Input, Button, notification} from 'antd'
+import {useHistory} from 'react-router-dom';
+import {TimePicker,Input, Button, notification} from 'antd';
+import moment from 'moment';
+
+const format = 'HH:mm'
+
+
+
 
 
 const NewAppointment = () =>{
@@ -18,8 +24,9 @@ const NewAppointment = () =>{
         const NewAppointment={
             
             token: user.token,
-            date: event.target.date.value,
-            symptoms: event.target.symptoms.value
+            date: event.target.date.value.split("-").reverse().join("-"),
+            symptoms: event.target.symptoms.value,
+            hour: event.target.hour.value
         };
 
         axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/create/${NewAppointment.token}`, NewAppointment)
@@ -43,7 +50,7 @@ const NewAppointment = () =>{
 
         <Input type="date" name="date" required placeholder="Set the date you desire the new appointment" />
         <Input type="symptoms" name="symptoms" required placeholder="Can you describe your symptoms?" />
-        
+        <TimePicker type="hour" name="hour" defaultValue={moment('12:08', format)} format={format} />
 
 
 
@@ -55,3 +62,7 @@ const NewAppointment = () =>{
 }
 
 export default NewAppointment;
+
+
+
+

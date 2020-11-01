@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './ShowAppointment.scss'
 import axios from 'axios';
 
-import {notification} from 'antd'
+import {Button, notification} from 'antd'
 
 
 
@@ -24,17 +24,18 @@ const AppointmentController = () => {
            })
     }, [])
 
-    const deleteAppointment = () => {
+    const deleteAppointment = async(_id) => {
+
         let user = JSON.parse(localStorage.getItem('user'));
-        axios.delete(`https://guarded-scrubland-93096.herokuapp.com/appointments/cancel/${user.email}`, user.email);
+       await axios.delete('https://guarded-scrubland-93096.herokuapp.com/appointments/cancel/' + _id);
         notification.success({message:'Appointment has been successfully cancelled.', description:'Appointment has been successfully cancelled.'})
-        axios.post(`https://guarded-scrubland-93096.herokuapp.com/appotments/show/${user.email}`, user.email)
-        .then((res) =>{
-          console.log(res.data)
-          setAppointments(res.data.appointment);
-        }).catch((error) =>{
-          console.log(error);
-        })
+       await axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${user.email}`, user.email)
+       .then((res) => {
+           console.log(res.data)
+           setAppointments(res.data.appointment);
+       }).catch((error) =>{
+           console.log(error);
+       })
       }
 
 
@@ -43,10 +44,14 @@ const AppointmentController = () => {
         <div className="appointmentContainer">
             {appointments?.map(appointment =>
                 <div key={appointment._id} className="cardAppointment">
+                    
                   <div className='title'>Patient: {appointment.name_user}</div>
                   <div className='title'>Motive: {appointment.symptoms}</div>
-                  <div>{appointment.date}</div>
-                  <button onClick={()=> {deleteAppointment(appointment._id)}}>X</button>
+                  <div className='title'>Day: {appointment.date}</div>
+                  <div className='title'>Hour: {appointment.hour}</div>
+                  
+                  
+                  <Button className="buttonApp" onClick={() => {deleteAppointment(appointment._id)}}>Borrar</Button>
                 </div>
             )}
         </div>
