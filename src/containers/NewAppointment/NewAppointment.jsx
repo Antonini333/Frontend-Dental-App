@@ -33,11 +33,11 @@ const NewAppointment = () =>{
         .then(res => {
 
             localStorage.setItem('appointment',JSON.stringify(res.data))
-            notification.success({ message :'You have made an appointment',description:`Date: ${NewAppointment.date}`})
+            notification.success({ message :'You have made an appointment',description:`Date: ${NewAppointment.date} Hour: ${NewAppointment.hour}`})
             
             setTimeout(() => {
                 history.push("/profile")
-            }, 3000);
+            }, 1900);
         }).catch(error => {
             notification.error({ message: 'Appointment error.', description: 'There was an error.' })
         })
@@ -50,7 +50,7 @@ const NewAppointment = () =>{
 
         <Input type="date" name="date" required placeholder="Set the date you desire the new appointment" />
         <Input type="symptoms" name="symptoms" required placeholder="Can you describe your symptoms?" />
-        <TimePicker type="hour" name="hour" defaultValue={moment('12:08', format)} format={format} />
+        <TimePicker type="hour" name="hour" defaultValue={moment('12:00', format)} format={format} />
 
 
 

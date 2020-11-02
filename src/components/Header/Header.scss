@@ -1,23 +1,54 @@
 .header {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     align-content: space-between;
     background-color: rgba(233, 219, 219, 0.459);
-    box-shadow: inset rgba(97, 107, 102, 0.459) 0.2em 0.1em 1em 0.1em;
+    box-shadow: inset rgba(50, 51, 50, 0.658) 0.2em 0.1em 1em 0.1em;
     color: rgb(36, 35, 35);
     border-radius: 0.5em;
-    height: 2.5em;
-    font-size: x-large;
+    height: 20vh;
+    font-size: 6vh;
+    padding: 2vh 0vh 0vh 3vh;
    a {
         all: unset;
         cursor: pointer;
-        font-size: xx-large;
+        font-size: 6vh;
   
-        
-        margin-left: 7.7em;
+        margin-left: 5vh;
         }
     
   }
 
+  .logout{
+    color: rgb(36, 35, 35);
+    border-radius: 0.5em;
+    background-color: rgba(54, 128, 177, 0.822) ;
+    font-size: 6vh;
+    padding: 0.6vh;
+    margin-right: 1vh;
+    border: inset 1.5vh rgba(54, 138, 194, 0.733) ;
+    box-shadow: inset rgba(50, 51, 50, 0.658) 0.2em 0.1em 1em 0.1em;
+
+  }
+
+  .logo{
+    
+    background-image: url("https://www.yourdentistryguide.com/wp-content/uploads/2017/11/smile-anatomy-min-925x425.jpg");
+    background-size: cover;
+    margin: -2vh 0vh 5vh 40.6vh;
+    width: 70vh;
+    border-radius: 0.5em;
+    height: 20vh;
+    box-shadow: inset rgba(62, 66, 64, 0.548) 0.2em 0.1em 1em 0.1em;
+}
   
+
+  .logout:hover {
+    background-color: rgba(143, 19, 10, 0.884);
+    box-shadow: inset 0em 0em 0.8em 0.6em rgba(216, 103, 103, 0.527);
+    transition: 0.3s;
+    border: inset 1.5vh rgb(165, 33, 23) ;
+    color: black;
+  }
+
   

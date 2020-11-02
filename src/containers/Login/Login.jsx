@@ -21,13 +21,20 @@ import {Input, Button, notification} from 'antd'
             setUser(res.data) //seteo el user como estado del App.js
             localStorage.setItem('authToken',res.data.token);
             localStorage.setItem('user',JSON.stringify(res.data))
-            notification.success({message:'Bienvenido',description:'Bienvenido '+user.name});
+
+        if (res.data.role === 'admin') {
+        setTimeout(() => {
+            history.push("/adminprofile")
+        }, 1500);
+    }else{ setTimeout(() => {
+            history.push("/profile")
+        }, 1500)};
+            notification.success({message:'Welcome back ' +user.name,description:'It is nice to see you again'});
             console.log('user')
-            setTimeout(() => {
-                history.push('/profile')
-            }, 1000);
+            
         })
         .catch(error=>console.log(error))
+
     }
     return (
         <div className="login">
@@ -35,6 +42,7 @@ import {Input, Button, notification} from 'antd'
             <Input type="name" name="name" required placeholder="Introduce tu nombre"/>
             <Input type="email" name="email" required placeholder="Introduce tu email" />
             <Input type="password" name="password" required placeholder="Introduce tu contraseña"/>
+
             <Button className="buttonlogin" type="primary" htmlType="submit">Login</Button>
         </form>
         </div>

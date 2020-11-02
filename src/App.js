@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
-//import logo from './logo.svg';
 import './App.css';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import axios from 'axios';
-
-
 import Header from './components/Header/Header';
-
 import Register from './containers/Register/Register';
 import Login from './containers/Login/Login';
 import Profile from './containers/Profile/Profile';
 import Home from './containers/Home/Home';
 import NewAppointment from './containers/NewAppointment/NewAppointment';
 import AppointmentController from './containers/ShowAppointment/ShowAppointment';
+import AdminController from './containers/Admin/Admin'
 
 
 
@@ -39,6 +36,7 @@ function App() {
         <Route exact path ='/' component={Home} />
         <Route exact path ='/register' component={Register}/>
         <Route exact path='/profile' component={Profile} />
+        <Route exact path='/adminprofile' component={AdminController} />
         <Route exact path='/profile/newappointment' component={NewAppointment} />
         <Route exact path='/profile/showappointment' component={AppointmentController} />
         <Route exact path='/login' >

@@ -1,9 +1,10 @@
 import React from 'react';
 import {useHistory} from "react-router";
+import {Input, Button, notification} from 'antd';
 
-import {Input, Button, notification } from 'antd';
 import axios from 'axios';
 import './Register.scss'
+
 const Register = () =>{
 
     const history = useHistory();
@@ -18,7 +19,7 @@ const Register = () =>{
             age: event.target.age.value,
             address: event.target.address.value,
             nationality: event.target.nationality.value,
-            DNI: event.target.DNI.value
+            role: event.target.role.value
         };
 
         axios.post('https://guarded-scrubland-93096.herokuapp.com/users/register', userBody)
@@ -27,7 +28,7 @@ const Register = () =>{
             notification.success({ message :'Registered client.',description:'Succesfully registered client.'})
             
             setTimeout(() => {
-                history.push("/")
+                history.push("/login")
             }, 1500);
         }).catch(error => {
             notification.error({ message: 'Registration error.', description: 'There was an error trying to register the client.' })
@@ -46,7 +47,9 @@ const Register = () =>{
         <Input type="age" name="age" required placeholder="Write your age" />
         <Input type="address" name="address" required placeholder="Write your address" />
         <Input type="nationality" name="nationality" required placeholder="Write your nationality" />
-        <Input type="DNI" name="DNI" required placeholder="Write your DNI" />
+        <select type="role" className="role" name="role" required placeholder="Choose your role"><option value='admin'>Admin</option><option value='user'>User/Client</option></select>
+        
+        
 
 
 

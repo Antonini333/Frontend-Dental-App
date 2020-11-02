@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './ShowAppointment.scss'
+import './Admin.scss'
 import axios from 'axios';
 
 import {Button, notification} from 'antd'
@@ -7,15 +7,15 @@ import {Button, notification} from 'antd'
 
 
 
-const AppointmentController = () => {
+const AdminController = () => {
 
     
     const [appointments,setAppointments] = useState([]);
     
 
    useEffect(() => {
-     let user = JSON.parse(localStorage.getItem('user'));
-         axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${user.email}`, user.email)
+  // let user = JSON.parse(localStorage.getItem('user'));
+         axios.post('https://guarded-scrubland-93096.herokuapp.com/appointments/show/')
            .then((res) => {
                console.log(res.data)
                setAppointments(res.data.appointment);
@@ -26,10 +26,8 @@ const AppointmentController = () => {
 
     const deleteAppointment = async(_id) => {
 
-        let user = JSON.parse(localStorage.getItem('user'));
        await axios.delete('https://guarded-scrubland-93096.herokuapp.com/appointments/cancel/' + _id);
         notification.success({message:'Appointment successfully cancelled.', description:'Please, contact us if you have any problem'})
-       await axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${user.email}`, user.email)
        .then((res) => {
            console.log(res.data)
            setAppointments(res.data.appointment);
@@ -40,10 +38,10 @@ const AppointmentController = () => {
 
 
         return(
-            <div className='appointmentprofile'>
-        <div className="appointmentContainer">
+            <div className='adminprofile'>
+        <div className="appContainer">
             {appointments?.map(appointment =>
-                <div key={appointment._id} className="cardAppointment">
+                <div key={appointment._id} className="cardApp">
                     
                   <div className='title'><strong>Patient:</strong> <em>{appointment.name_user}</em></div>
                   <div className='title'><strong>Motive:</strong> <em>{appointment.symptoms}</em></div>
@@ -60,4 +58,4 @@ const AppointmentController = () => {
 }
 
 
-export default AppointmentController;
+export default AdminController;
