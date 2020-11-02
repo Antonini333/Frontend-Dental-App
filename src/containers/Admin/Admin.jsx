@@ -18,9 +18,10 @@ const AdminController = () => {
          axios.post('https://guarded-scrubland-93096.herokuapp.com/appointments/show/')
            .then((res) => {
                console.log(res.data)
+
+               localStorage.setItem('appointments', JSON.stringify(res.data));
                setAppointments(res.data.appointment);
                console.log(setAppointments)
-               localStorage.setItem('appointments', JSON.stringify(res.data));
            })
     }, [])
 
