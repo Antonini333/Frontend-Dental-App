@@ -45,7 +45,7 @@ const AppointmentController = () => {
             {appointments?.map(appointment =>
                 <div key={appointment._id} className="cardAppointment">
                     
-                  <div className='title'><strong>Patient:</strong> <em>{appointment.name_user}</em></div>
+                  <div className='title'><strong>Patient Name:</strong> <em>{appointment.name_user}</em></div>
                   <div className='title'><strong>Motive:</strong> <em>{appointment.symptoms}</em></div>
                   <div className='title'><strong>Day:</strong> <em>{appointment.date}</em></div>
                   <div className='title'><strong>Hour:</strong> <em>{appointment.hour}</em></div>
