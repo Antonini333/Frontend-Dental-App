@@ -23,9 +23,9 @@ import {Input, Button, notification} from 'antd'
             localStorage.setItem('user',JSON.stringify(res.data))
 
         if (res.data.role === 'admin') {
-        setTimeout(() => {
-            history.push("/adminprofile")
-        }, 1500);
+            setTimeout(() => {
+                history.push("/adminprofile")
+            }, 1500);
     }else{ setTimeout(() => {
             history.push("/profile")
         }, 1500)};

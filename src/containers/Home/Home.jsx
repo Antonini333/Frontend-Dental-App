@@ -11,11 +11,11 @@ const Home = () => {
             .
         </div>
             <div className="clinicatext">
-        <h2>En Clínicas De Colli llevamos más de 10 años ofreciendo nuestros servicios profesionales.
+        <p>En Clínicas De Colli llevamos más de 10 años ofreciendo nuestros servicios profesionales.<br></br>
 
-Realizamos tratamientos dentales de todo tipo con las técnicas más innovadoras y apostando por la comodidad del paciente.
+Realizamos tratamientos dentales de todo tipo con las técnicas más innovadoras y apostando por la comodidad del paciente.<br></br>
 
-Somos especialistas en Implantes Dentales, Salud de las Encías, Estética y Rehabilitación, Ortodoncia.</h2>
+Somos especialistas en Implantes Dentales, Salud de las Encías, Ortodoncia, Estética y Rehabilitación.</p>
         </div>
         
         </div>

@@ -15,7 +15,7 @@ const AdminController = () => {
 
    useEffect(() => {
   // let user = JSON.parse(localStorage.getItem('user'));
-         axios.post('https://guarded-scrubland-93096.herokuapp.com/appointments/show/')
+         axios.get('https://guarded-scrubland-93096.herokuapp.com/appointments/show')
            .then((res) => {
                console.log(res.data)
 

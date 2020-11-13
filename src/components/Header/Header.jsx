@@ -25,6 +25,7 @@ const logout = () =>{
                 <Link to="/login">Login</Link> &nbsp;
                 <Link to="/register">Register</Link>
             </div>}
+            <div className="logo"></div>
         </header>
     )
 }

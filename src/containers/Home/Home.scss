@@ -6,6 +6,7 @@
     
     background-size: cover;
     background-position: center;
+    color: white;
     
    }
    
@@ -14,22 +15,27 @@
 }
 
 .clinicatext{
-    margin: 8em 26em 0em 22em;
-    background-color: rgba(13, 120, 182, 0.74);
+    margin: 4em 26em 0em 20em;
+    background-color: rgba(13, 120, 182, 0.856);
     padding: 1.5em;
+    font-weight: bold;
+    width: 80vh;
+    font-size: 3vh;
+    line-height: 1.8em;
+    border: inset 1em rgba(0, 0, 0, 0.397);
     border-radius: 0.9em;
     box-shadow: inset rgba(0, 0, 0, 0.652) 0.2em 0.1em 1em 0.1em;
-    a {
-        color: white;
-    }
+    color: rgb(226, 240, 239)
+   
+    
     
 }
 
 
 .logout{
-    margin-left: 7em;
+    margin-left: 2em;
     font-size: x-large ;
     font-weight: bold;
-    color: rgba(192, 8, 8, 0.945)
+    color: rgba(155, 47, 47, 0.945)
 }
 
