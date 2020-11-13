@@ -15,9 +15,12 @@ DentalClinic Appointments is an app thinked to manage all clients appointments i
 - Github
 - Heroku
 ---
+##Deployed at Netlify: https://pensive-haibt-95b795.netlify.app/register
 
 ## Steps to run the application 🚀
-Download and run in bash
+In browser: you can open this URL: https://pensive-haibt-95b795.netlify.app/register
+
+Or you can download this repository and run in bash
 >  $ npm install
 >  $ npm start
 ---
