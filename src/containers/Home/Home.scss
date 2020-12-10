@@ -7,35 +7,31 @@
     background-size: cover;
     background-position: center;
     color: white;
-    
+    display: flex;
+    justify-content: center;
+    align-content: space-between;
    }
    
-.leitmotiv {
-    margin-left: 8em;
-}
+
 
 .clinicatext{
-    margin: 4em 26em 0em 20em;
+    margin-top: 5em;
     background-color: rgba(13, 120, 182, 0.856);
     padding: 1.5em;
     font-weight: bold;
-    width: 80vh;
+    height: 50vh;
+    width: 60vw;
     font-size: 3vh;
     line-height: 1.8em;
     border: inset 1em rgba(0, 0, 0, 0.397);
     border-radius: 0.9em;
     box-shadow: inset rgba(0, 0, 0, 0.652) 0.2em 0.1em 1em 0.1em;
-    color: rgb(226, 240, 239)
+    color: rgb(21, 31, 30)
    
     
     
 }
 
 
-.logout{
-    margin-left: 2em;
-    font-size: x-large ;
-    font-weight: bold;
-    color: rgba(155, 47, 47, 0.945)
-}
+
 

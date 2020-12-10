@@ -1,6 +1,6 @@
 import React from 'react';
 import {useHistory} from "react-router";
-import {Input, Button, notification} from 'antd';
+import {Input, Button, notification } from 'antd';
 
 import axios from 'axios';
 import './Register.scss'
@@ -19,7 +19,8 @@ const Register = () =>{
             age: event.target.age.value,
             address: event.target.address.value,
             nationality: event.target.nationality.value,
-            role: event.target.role.value
+            role: event.target.role.value,
+            
         };
 
         axios.post('https://guarded-scrubland-93096.herokuapp.com/users/register', userBody)
@@ -48,6 +49,7 @@ const Register = () =>{
         <Input type="address" name="address" required placeholder="Write your address" />
         <Input type="nationality" name="nationality" required placeholder="Write your nationality" />
         <select type="role" className="role" name="role" required placeholder="Choose your role"><option value='admin'>Admin</option><option value='user'>User/Client</option></select>
+       
         
         
 
@@ -63,3 +65,4 @@ const Register = () =>{
 }
 
 export default Register;
+

@@ -10,7 +10,7 @@ import {Input, Button, notification} from 'antd'
     const handleSubmit = event =>{
         event.preventDefault(); // para evitar refrescar la página
         const user ={
-            name:event.target.name.value,
+
             email:event.target.email.value,
             password:event.target.password.value
         };
@@ -29,7 +29,7 @@ import {Input, Button, notification} from 'antd'
     }else{ setTimeout(() => {
             history.push("/profile")
         }, 1500)};
-            notification.success({message:'Welcome back ' +user.name,description:'It is nice to see you again'});
+            notification.success({message:'Welcome back ' +res.data.name,description:'It is nice to see you again'});
             console.log('user')
             
         })
@@ -39,7 +39,7 @@ import {Input, Button, notification} from 'antd'
     return (
         <div className="login">
         <form className="login-form" onSubmit={handleSubmit}>
-            <Input type="name" name="name" required placeholder="Introduce tu nombre"/>
+
             <Input type="email" name="email" required placeholder="Introduce tu email" />
             <Input type="password" name="password" required placeholder="Introduce tu contraseña"/>
 

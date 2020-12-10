@@ -1,8 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import './Profile.scss'
+import './AdminProfile.scss'
 
-const Profile = () => {
+const AdminProfile = () => {
     const userLogin = JSON.parse(localStorage.getItem('user'));
     
     return (
@@ -13,10 +13,10 @@ const Profile = () => {
 
        <div className="containerButtons">
              <div className="buttonsProfile">
-               <Link to="/profile/newappointment">Make New Appointment</Link>
+               <Link to="/adminprofile/showusers">Check All Users</Link>
              </div>
              <div className="buttonsProfile">
-               <Link to="/profile/showappointment">Check Appointments</Link>
+               <Link to="/adminprofile/showappointment">Check All Appointments</Link>
              </div>
              
              <div className="buttonsProfile">
@@ -27,7 +27,4 @@ const Profile = () => {
     )
 }
 
-export default Profile;
-
-
-
+export default AdminProfile;

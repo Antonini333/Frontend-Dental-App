@@ -10,7 +10,11 @@ import Profile from './containers/Profile/Profile';
 import Home from './containers/Home/Home';
 import NewAppointment from './containers/NewAppointment/NewAppointment';
 import AppointmentController from './containers/ShowAppointment/ShowAppointment';
-import AdminController from './containers/Admin/Admin'
+import AdminAppointmentController from './containers/AdminShowAppointment/AdminShowAppointment';
+
+import AdminUserController from './containers/AdminShowUsers/AdminShowUsers';
+import AdminProfile from './containers/AdminProfile/AdminProfile';
+
 
 
 
@@ -36,9 +40,12 @@ function App() {
         <Route exact path ='/' component={Home} />
         <Route exact path ='/register' component={Register}/>
         <Route exact path='/profile' component={Profile} />
-        <Route exact path='/adminprofile' component={AdminController} />
+        <Route exact path='/adminprofile' component={AdminProfile} />
         <Route exact path='/profile/newappointment' component={NewAppointment} />
         <Route exact path='/profile/showappointment' component={AppointmentController} />
+        <Route exact path='/profile/showappointment' component={AppointmentController} />
+        <Route exact path='/adminprofile/showappointment' component={AdminAppointmentController} />
+        <Route exact path='/adminprofile/showusers' component={AdminUserController} />
         <Route exact path='/login' >
 
           <Login setUser={setUser} />
