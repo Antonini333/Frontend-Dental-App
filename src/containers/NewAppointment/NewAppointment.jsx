@@ -15,7 +15,7 @@ const NewAppointment = () =>{
 
     const user = JSON.parse(localStorage.getItem('user'));
     const history = useHistory();
-
+    const token = localStorage.getItem('authToken')
     
 
     const handleSubmit = event =>{
@@ -23,13 +23,12 @@ const NewAppointment = () =>{
         
         const NewAppointment={
             
-            token: user.token,
             date: event.target.date.value.split("-").reverse().join("-"),
             symptoms: event.target.symptoms.value,
             hour: event.target.hour.value
         };
-
-        axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/create/${NewAppointment.token}`, NewAppointment)
+        const options = { headers: { Authorization: `${token}` }};
+        axios.post(process.env.REACT_APP_BASE_URL + '/api/Appointment', NewAppointment, options)
         .then(res => {
 
             localStorage.setItem('appointment',JSON.stringify(res.data))

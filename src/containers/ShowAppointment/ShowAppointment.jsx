@@ -11,11 +11,14 @@ const AppointmentController = () => {
 
     
     const [appointments,setAppointments] = useState([]);
+    const token = localStorage.getItem('authToken')
     
 
    useEffect(() => {
      let user = JSON.parse(localStorage.getItem('user'));
-         axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${user.email}`, user.email)
+
+     const options = { headers: { Authorization: `${token}` }};
+         axios.post(process.env.REACT_APP_BASE_URL +  '/api/Appointment/show', options)
            .then((res) => {
                console.log(res.data)
                setAppointments(res.data.appointment);
@@ -24,20 +27,18 @@ const AppointmentController = () => {
            })
     }, [])
 
-    const deleteAppointment = async(_id) => {
+    const deleteAppointment = async(id) => {
 
-        let user = JSON.parse(localStorage.getItem('user'));
-       await axios.delete('https://guarded-scrubland-93096.herokuapp.com/appointments/cancel/' + _id);
-        notification.success({message:'Appointment successfully cancelled.', description:'Please, contact us if you have any problem'})
-       await axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${user.email}`, user.email)
-       .then((res) => {
-           console.log(res.data)
-           setAppointments(res.data.appointment);
-       }).catch((error) =>{
-           console.log(error);
-       })
-      }
-
+        await axios.delete(process.env.REACT_APP_BASE_URL + '/api/Appointment/' + id);
+         notification.success({message:'Appointment successfully cancelled.', description:'Please, contact us if you have any problem'})
+        await axios.get(process.env.REACT_APP_BASE_URL + '/api/Appointment')
+        .then((res) => {
+            console.log(res.data)
+            setAppointments(res.data.appointment);
+        }).catch((error) =>{
+            console.log(error);
+        })
+       }
 
         return(
             <div className='appointmentprofile'>

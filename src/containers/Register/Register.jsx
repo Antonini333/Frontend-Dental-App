@@ -23,7 +23,7 @@ const Register = () =>{
             
         };
 
-        axios.post('https://guarded-scrubland-93096.herokuapp.com/users/register', userBody)
+        axios.post(process.env.REACT_APP_BASE_URL + '/api/Appointment', userBody)
         .then(res => {
             console.log(res.data)
             notification.success({ message :'Registered client.',description:'Succesfully registered client.'})

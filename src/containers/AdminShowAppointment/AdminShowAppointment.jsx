@@ -14,8 +14,8 @@ const AdminAppointmentController = () => {
     
 
    useEffect(() => {
-     let user = JSON.parse(localStorage.getItem('user'));
-         axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${user.email}`, user.email) // AQUÍ LLAMAR A TODAS LAS CITAS
+     
+         axios.get(process.env.REACT_APP_BASE_URL + '/api/Appointment') // AQUÍ LLAMAR A TODAS LAS CITAS
            .then((res) => {
                console.log(res.data)
                setAppointments(res.data.appointment);
@@ -24,12 +24,11 @@ const AdminAppointmentController = () => {
            })
     }, [])
 
-    const deleteAppointment = async(_id) => {
+    const deleteAppointment = async(id) => {
 
-        let user = JSON.parse(localStorage.getItem('user'));
-       await axios.delete('https://guarded-scrubland-93096.herokuapp.com/appointments/cancel/' + _id);
+       await axios.delete(process.env.REACT_APP_BASE_URL + '/api/Appointment/' + id);
         notification.success({message:'Appointment successfully cancelled.', description:'Please, contact us if you have any problem'})
-       await axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${user.email}`, user.email)
+       await axios.get(process.env.REACT_APP_BASE_URL + '/api/Appointment')
        .then((res) => {
            console.log(res.data)
            setAppointments(res.data.appointment);

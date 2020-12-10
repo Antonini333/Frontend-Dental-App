@@ -10,48 +10,33 @@ import {Button, notification} from 'antd'
 const AdminUserController = () => {
 
     
-    const [appointments,setAppointments] = useState([]);
+    const [users,setUsers] = useState([]);
     
 
    useEffect(() => {
-     let user = JSON.parse(localStorage.getItem('user'));
-         axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${user.email}`, user.email) // AQUÍ LLAMAR A TODAS LAS CITAS
+     
+    axios.get(process.env.REACT_APP_BASE_URL + '/api/users')
            .then((res) => {
                console.log(res.data)
-               setAppointments(res.data.appointment);
-               console.log(setAppointments)
-               localStorage.setItem('appointments', JSON.stringify(res.data));
+               setUsers(res.data.users);
+               console.log(setUsers)
            })
     }, [])
-
-    const deleteAppointment = async(_id) => {
-
-        let user = JSON.parse(localStorage.getItem('user'));
-       await axios.delete('https://guarded-scrubland-93096.herokuapp.com/appointments/cancel/' + _id);
-        notification.success({message:'Appointment successfully cancelled.', description:'Please, contact us if you have any problem'})
-       await axios.post(`https://guarded-scrubland-93096.herokuapp.com/appointments/show/${user.email}`, user.email)
-       .then((res) => {
-           console.log(res.data)
-           setAppointments(res.data.appointment);
-       }).catch((error) =>{
-           console.log(error);
-       })
-      }
-
 
         return(
             <div className='appointmentprofile'>
         <div className="appointmentContainer">
-            {appointments?.map(appointment =>
-                <div key={appointment._id} className="cardAppointment">
+            {users?.map(user =>
+                <div key={user.id} className="cardAppointment">
                     
-                  <div className='title'><strong>Patient Name:</strong> <em>{appointment.name_user}</em></div>
-                  <div className='title'><strong>Motive:</strong> <em>{appointment.symptoms}</em></div>
-                  <div className='title'><strong>Day:</strong> <em>{appointment.date}</em></div>
-                  <div className='title'><strong>Hour:</strong> <em>{appointment.hour}</em></div>
+                  <div className='title'><strong>Patient Name:</strong> <em>{user.name}</em></div>
+                  <div className='title'><strong>Age:</strong> <em>{user.age}</em></div>
+                  <div className='title'><strong>Phone:</strong> <em>{user.phone}</em></div>
+                  <div className='title'><strong>Address:</strong> <em>{user.address}</em></div>
+                  <div className='title'><strong>DNI:</strong> <em>{user.DNI}</em></div>
+                  <div className='title'><strong>Nationality:</strong> <em>{user.nationality}</em></div>
                   
                   
-                  <Button className="buttonApp" onClick={() => {deleteAppointment(appointment._id)}}>Cancel  </Button>
                 </div>
             )}
         </div>

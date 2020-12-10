@@ -14,7 +14,7 @@ import {Input, Button, notification} from 'antd'
             email:event.target.email.value,
             password:event.target.password.value
         };
-        axios.post('https://guarded-scrubland-93096.herokuapp.com/users/login',user)
+        axios.post(process.env.REACT_APP_BASE_URL + '/api/login', user)
         .then(res=>{
             console.log(res.data);
          // props.setUser(res.data.user) //seteo el user como estado del App.js
