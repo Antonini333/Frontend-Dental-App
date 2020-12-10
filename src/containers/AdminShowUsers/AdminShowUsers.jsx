@@ -15,7 +15,7 @@ const AdminUserController = () => {
 
    useEffect(() => {
      
-    axios.get(process.env.REACT_APP_BASE_URL + '/api/users')
+    axios.get('https://fast-stream-27176.herokuapp.com/api/users')
            .then((res) => {
                console.log(res.data)
                setUsers(res.data.users);

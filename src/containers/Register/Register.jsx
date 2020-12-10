@@ -23,7 +23,7 @@ const Register = () =>{
             
         };
 
-        axios.post(process.env.REACT_APP_BASE_URL + '/api/Appointment', userBody)
+        axios.post('https://fast-stream-27176.herokuapp.com/api/Appointment', userBody)
         .then(res => {
             console.log(res.data)
             notification.success({ message :'Registered client.',description:'Succesfully registered client.'})

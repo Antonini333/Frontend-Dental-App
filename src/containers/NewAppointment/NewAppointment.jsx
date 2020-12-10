@@ -28,7 +28,7 @@ const NewAppointment = () =>{
             hour: event.target.hour.value
         };
         const options = { headers: { Authorization: `${token}` }};
-        axios.post(process.env.REACT_APP_BASE_URL + '/api/Appointment', NewAppointment, options)
+        axios.post('https://fast-stream-27176.herokuapp.com/api/Appointment', NewAppointment, options)
         .then(res => {
 
             localStorage.setItem('appointment',JSON.stringify(res.data))

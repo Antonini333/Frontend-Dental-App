@@ -15,7 +15,7 @@ const AdminAppointmentController = () => {
 
    useEffect(() => {
      
-         axios.get(process.env.REACT_APP_BASE_URL + '/api/Appointment') // AQUÍ LLAMAR A TODAS LAS CITAS
+         axios.get('https://fast-stream-27176.herokuapp.com/api/Appointment') // AQUÍ LLAMAR A TODAS LAS CITAS
            .then((res) => {
                console.log(res.data)
                setAppointments(res.data.appointment);
@@ -26,9 +26,9 @@ const AdminAppointmentController = () => {
 
     const deleteAppointment = async(id) => {
 
-       await axios.delete(process.env.REACT_APP_BASE_URL + '/api/Appointment/' + id);
+       await axios.delete('https://fast-stream-27176.herokuapp.com/api/Appointment/' + id);
         notification.success({message:'Appointment successfully cancelled.', description:'Please, contact us if you have any problem'})
-       await axios.get(process.env.REACT_APP_BASE_URL + '/api/Appointment')
+       await axios.get('https://fast-stream-27176.herokuapp.com/api/Appointment')
        .then((res) => {
            console.log(res.data)
            setAppointments(res.data.appointment);
