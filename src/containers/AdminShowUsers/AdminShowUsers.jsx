@@ -2,26 +2,29 @@ import React, {useEffect, useState} from 'react';
 import './AdminShowUsers.scss'
 import axios from 'axios';
 
-import {Button, notification} from 'antd'
 
 
 
 
 const AdminUserController = () => {
 
+
     
     const [users,setUsers] = useState([]);
-    
 
    useEffect(() => {
      
-    axios.get('https://fast-stream-27176.herokuapp.com/api/users')
+         axios.get('https://fast-stream-27176.herokuapp.com/api/users') 
            .then((res) => {
                console.log(res.data)
-               setUsers(res.data.users);
+               setUsers(res.data);
                console.log(setUsers)
+               localStorage.setItem('users', JSON.stringify(res.data));
            })
     }, [])
+
+
+
 
         return(
             <div className='appointmentprofile'>
@@ -29,12 +32,11 @@ const AdminUserController = () => {
             {users?.map(user =>
                 <div key={user.id} className="cardAppointment">
                     
-                  <div className='title'><strong>Patient Name:</strong> <em>{user.name}</em></div>
+                  <div className='title'><strong>Patient:</strong> <em>{user.name}</em></div>
                   <div className='title'><strong>Age:</strong> <em>{user.age}</em></div>
-                  <div className='title'><strong>Phone:</strong> <em>{user.phone}</em></div>
+                  <div className='title'><strong>Phone number::</strong> <em>{user.phone}</em></div>
                   <div className='title'><strong>Address:</strong> <em>{user.address}</em></div>
                   <div className='title'><strong>DNI:</strong> <em>{user.DNI}</em></div>
-                  <div className='title'><strong>Nationality:</strong> <em>{user.nationality}</em></div>
                   
                   
                 </div>
@@ -43,6 +45,9 @@ const AdminUserController = () => {
       </div>
         )
 }
+
+
+
 
 
 export default AdminUserController;

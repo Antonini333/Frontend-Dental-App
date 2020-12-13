@@ -13,7 +13,6 @@ const format = 'HH:mm'
 
 const NewAppointment = () =>{
 
-    const user = JSON.parse(localStorage.getItem('user'));
     const history = useHistory();
     const token = localStorage.getItem('authToken')
     

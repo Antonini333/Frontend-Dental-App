@@ -14,7 +14,7 @@ import {Input, Button, notification} from 'antd'
             email:event.target.email.value,
             password:event.target.password.value
         };
-        axios.post('https://fast-stream-27176.herokuapp.com/api/login', user)
+        axios.post('https://fast-stream-27176.herokuapp.com/api/login', user) //CHECKED
         .then(res=>{
             console.log(res.data);
          // props.setUser(res.data.user) //seteo el user como estado del App.js

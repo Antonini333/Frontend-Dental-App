@@ -13,46 +13,50 @@ const AppointmentController = () => {
     const [appointments,setAppointments] = useState([]);
     const token = localStorage.getItem('authToken')
     
-
    useEffect(() => {
-     let user = JSON.parse(localStorage.getItem('user'));
+
 
      const options = { headers: { Authorization: `${token}` }};
-         axios.post(process.env.REACT_APP_BASE_URL +  '/api/Appointment/show', options)
+         axios.get('https://fast-stream-27176.herokuapp.com/api/Appointment/show', options)
            .then((res) => {
                console.log(res.data)
-               setAppointments(res.data.appointment);
+               setAppointments(res.data);
                console.log(setAppointments)
                localStorage.setItem('appointments', JSON.stringify(res.data));
            })
     }, [])
 
     const deleteAppointment = async(id) => {
-
-        await axios.delete(process.env.REACT_APP_BASE_URL + '/api/Appointment/' + id);
+        const options = { headers: { Authorization: `${token}` }};
+        await axios.delete('https://fast-stream-27176.herokuapp.com/api/Appointment/' + id, options);
          notification.success({message:'Appointment successfully cancelled.', description:'Please, contact us if you have any problem'})
-        await axios.get(process.env.REACT_APP_BASE_URL + '/api/Appointment')
+        await axios.get('https://fast-stream-27176.herokuapp.com/api/Appointment/show', options)
         .then((res) => {
             console.log(res.data)
-            setAppointments(res.data.appointment);
+            setAppointments(res.data);
         }).catch((error) =>{
             console.log(error);
         })
        }
 
+
+    const user = JSON.parse(localStorage.getItem('user'));
+       
+
         return(
             <div className='appointmentprofile'>
         <div className="appointmentContainer">
             {appointments?.map(appointment =>
-                <div key={appointment._id} className="cardAppointment">
+                <div key={appointment.id} className="cardAppointment">
                     
-                  <div className='title'><strong>Patient Name:</strong> <em>{appointment.name_user}</em></div>
+                  <div className='title'><strong>Patient Name:</strong> <em>{user.name}</em></div>
+                  <div className='title'><strong>Age:</strong> <em>{user.age}</em></div>
                   <div className='title'><strong>Motive:</strong> <em>{appointment.symptoms}</em></div>
                   <div className='title'><strong>Day:</strong> <em>{appointment.date}</em></div>
                   <div className='title'><strong>Hour:</strong> <em>{appointment.hour}</em></div>
                   
                   
-                  <Button className="buttonApp" onClick={() => {deleteAppointment(appointment._id)}}>Cancel  </Button>
+                  <Button className="buttonApp" onClick={() => {deleteAppointment(appointment.id)}}>Cancel  </Button>
                 </div>
             )}
         </div>

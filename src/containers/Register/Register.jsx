@@ -19,11 +19,12 @@ const Register = () =>{
             age: event.target.age.value,
             address: event.target.address.value,
             nationality: event.target.nationality.value,
+            DNI: event.target.DNI.value,
             role: event.target.role.value,
             
         };
-
-        axios.post('https://fast-stream-27176.herokuapp.com/api/Appointment', userBody)
+        
+        axios.post('https://fast-stream-27176.herokuapp.com/api/register', userBody) // CHECKED
         .then(res => {
             console.log(res.data)
             notification.success({ message :'Registered client.',description:'Succesfully registered client.'})
@@ -48,6 +49,7 @@ const Register = () =>{
         <Input type="age" name="age" required placeholder="Write your age" />
         <Input type="address" name="address" required placeholder="Write your address" />
         <Input type="nationality" name="nationality" required placeholder="Write your nationality" />
+        <Input type="DNI" name="DNI" required placeholder="Write your DNI" />
         <select type="role" className="role" name="role" required placeholder="Choose your role"><option value='admin'>Admin</option><option value='user'>User/Client</option></select>
        
         
