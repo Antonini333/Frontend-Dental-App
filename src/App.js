@@ -3,7 +3,7 @@ import './App.css';
 import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import axios from 'axios';
-import Header from './components/Header/Header';
+import Header from './components/Header/Header/Header';
 import Register from './containers/Register/Register';
 import Login from './containers/Login/Login';
 import Profile from './containers/Profile/Profile';

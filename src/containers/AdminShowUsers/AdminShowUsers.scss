@@ -4,23 +4,19 @@
   .appointmentprofile{
     display: flex;
     flex-direction: column;
-    color: #84a9ac;
     background-size: cover;
     background-position: center;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
+    
     background-image: url("https://estaticos.qdq.com/swdata/home_photos/389/389154911/c22e27f83dc640f2a5bb0ed4417b44ff.jpg");
-   
-    height: 100vh;
+    height: 100%;
     width: 100vw;
   }
   
   .appointmentContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
     align-items: center;
     
   

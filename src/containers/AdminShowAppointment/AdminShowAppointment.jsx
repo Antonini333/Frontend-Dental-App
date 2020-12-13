@@ -40,19 +40,19 @@ const AdminAppointmentController = () => {
 
 
         return(
-            <div className='appointmentprofile'>
-        <div className="appointmentContainer">
+            <div className='aappointmentprofile'>
+        <div className="aappointmentContainer">
             {appointments?.map(appointment =>
-                <div key={appointment.id} className="cardAppointment">
+                <div key={appointment.id} className="ccardAppointment">
                     
-                  <div className='title'><strong>Patient Number:</strong> <em>{appointment.user_id}</em></div>
-                  <div className='title'><strong>Motive:</strong> <em>{appointment.symptoms}</em></div>
-                  <div className='title'><strong>Day:</strong> <em>{appointment.date}</em></div>
-                  <div className='title'><strong>Hour:</strong> <em>{appointment.hour}</em></div>
-                  <div className='title'><strong>Status:</strong> <em>{appointment.status}</em></div>
+                  <div className='ttitle'><strong>Patient Number:</strong> <em>{appointment.user_id}</em></div>
+                  <div className='ttitle'><strong>Motive:</strong> <em>{appointment.symptoms}</em></div>
+                  <div className='ttitle'><strong>Day:</strong> <em>{appointment.date}</em></div>
+                  <div className='ttitle'><strong>Hour:</strong> <em>{appointment.hour}</em></div>
+                  <div className='ttitle'><strong>Status:</strong> <em>{appointment.status}</em></div>
                   
                   
-                  <Button className="buttonApp" onClick={() => {deleteAppointment(appointment.id)}}>Cancel  </Button>
+                  <Button className="bbuttonApp" onClick={() => {deleteAppointment(appointment.id)}}>Cancel  </Button>
                 </div>
             )}
         </div>

@@ -1,30 +1,26 @@
 
 
 
-  .appointmentprofile{
+  .aappointmentprofile{
     display: flex;
     flex-direction: column;
-    color: #84a9ac;
     background-size: cover;
     background-position: center;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-content: space-between;
+    
     background-image: url("https://estaticos.qdq.com/swdata/home_photos/389/389154911/c22e27f83dc640f2a5bb0ed4417b44ff.jpg");
-   
-    height: 100vh;
+    height: 100%;
     width: 100vw;
   }
   
-  .appointmentContainer {
+  .aappointmentContainer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
     align-items: center;
     
   
-    .cardAppointment {
+    .ccardAppointment {
         padding: 2vh;
         border-radius: 1em;
         margin: 2em;
@@ -34,7 +30,7 @@
         flex-direction: column;
         vertical-align: middle
     }
-    .title{
+    .ttitle{
       padding: 2.5vh;
       background-color: #99e9f053;
       text-align: left;
@@ -44,7 +40,7 @@
       color:  #000000;
     }
   
-    .buttonApp{
+    .bbuttonApp{
       display: flex;
       justify-content: center;
       background-color:#e376c4c4;
@@ -53,7 +49,7 @@
       color:#500303;
     }
 
-    .buttonApp:hover{
+    .bbuttonApp:hover{
       background-color:rgb(164, 14, 14);
       color:black;
     }
